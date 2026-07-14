@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      GOPRIVATE: github.com/mlpre/*
     steps:
       - name: checkout
         uses: actions/checkout@v4
