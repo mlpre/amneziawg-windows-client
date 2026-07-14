@@ -311,6 +311,9 @@ func (s stringSpan) isValidEndpoint() bool {
 	if s.len == 0 {
 		return false
 	}
+	if (s.len >= 7 && stringSpan{s.s, 7}.isSame("http://")) || (s.len >= 8 && stringSpan{s.s, 8}.isSame("https://")) {
+		return true
+	}
 	if *s.s == '[' {
 		seenScope := false
 		hostspan := stringSpan{s.at(1), 0}
